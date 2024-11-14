@@ -235,7 +235,7 @@ class Timetables extends ConsumerWidget {
                     child: ListTile(
                       title: Text(
                           ref.watch(timetableProvider).timetables[index].name),
-                      tileColor: Colors.grey.shade300,
+                      tileColor: Colors.teal.shade800,
                       subtitle: Text(
                           'Rows: ${ref.watch(timetableProvider).timetables[index].rows} Columns: ${ref.watch(timetableProvider).timetables[index].columns}'),
                       onTap: () {
