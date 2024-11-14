@@ -20,9 +20,13 @@ router.get("/", async (req, res) => {
       // Check if imagePath is null
       let imagePathBase64 = null;
       if (item.imagePath) {
-        // Read the image file if imagePath is not null
-        const bufferImage = await fs.readFile(item.imagePath);
-        imagePathBase64 = bufferImage.toString("base64");
+        try {
+          // Read the image file if imagePath is not null
+          const bufferImage = await fs.readFile(item.imagePath);
+          imagePathBase64 = bufferImage.toString("base64");
+        } catch (readError) {
+          console.error('Error reading image file:', readError);
+        }
       }
 
       // Create a new object with the required attributes
